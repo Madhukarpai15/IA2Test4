@@ -1,1 +1,78 @@
-
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0xa32: file p3final.c, line 61.
+(gdb) r
+Starting program: /home/runner/IA2Test4/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+n
+Breakpoint 1, main () at p3final.c:61
+61  {
+(gdb) n
+63    parameters=input();
+(gdb) s
+input () at p3final.c:12
+12  {
+(gdb) n
+14    printf("Enter the stomach radius of the camel: ");
+(gdb) n
+15    scanf("%f",&c.radius);
+(gdb) n
+Enter the stomach radius of the camel: 12
+16    printf("Enter the height of the camel: ");
+(gdb) n
+17    scanf("%f",&c.height);
+(gdb) n
+Enter the height of the camel: 13
+18    printf("Enter the lenght of the camel: ");
+(gdb) n
+19    scanf("%f",&c.length);
+(gdb) n
+Enter the lenght of the camel: 14
+20    return c;
+(gdb) n
+21  }
+(gdb) n
+main () at p3final.c:64
+64    find_weight(&parameters);
+(gdb) s
+find_weight (c=0x7ffeba45b4e0) at p3final.c:25
+25    c->weight=pi*pow(c->radius,3)*sqrt(c->height*c->length);
+(gdb) n
+26  }
+(gdb) n
+main () at p3final.c:65
+65    find_mood(&parameters);
+(gdb) s
+find_mood (c=0x7ffeba45b4e0) at p3final.c:30
+30    if(c->radius<c->height && c->radius<c->length)
+(gdb) n
+32      c->mood=0;
+(gdb) 
+main () at p3final.c:66
+66    output(parameters);
+(gdb) s
+output (c=...) at p3final.c:46
+46    if(c.mood==0)
+(gdb) n
+48      printf("The camel is sick.");
+(gdb) n
+58  }
+(gdb) n
+main () at p3final.c:68
+68  }(gdb) c
+Continuing.
+The camel is sick.[Inferior 1 (process 194) exited normally]

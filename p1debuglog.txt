@@ -1,1 +1,88 @@
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x99d: file p1final.c, line 44.
+(gdb) r
+Starting program: /home/runner/IA2Test4/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1final.c:44
+44    sr=input_radius();
+(gdb) s
+input_radius () at p1final.c:6
+6   {
+(gdb) n
+8     printf("Enter the stomach radius of the camel: ");
+(gdb) n
+9     scanf("%f",&a);
+(gdb) n
+Enter the stomach radius of the camel: 23
+10    return a;
+(gdb) n
+11  }
+(gdb) n
+main () at p1final.c:45
+45    h=input_height();
+(gdb) s
+input_height () at p1final.c:14
+14  {
+(gdb) n
+16    printf("Enter the height of the camel: ");
+(gdb) n
+17    scanf("%f",&a);
+(gdb) n
+Enter the height of the camel: 15
+18    return a;
+(gdb) n
+19  }
+(gdb) n
+main () at p1final.c:46
+46    l=input_length();
+(gdb) s
+input_length () at p1final.c:22
+22  {
+(gdb) n
+24    printf("Enter the length of the camel: ");
+(gdb) n
+25    scanf("%f",&a);
+(gdb) n
+Enter the length of the camel: 12
+26    return a;
+(gdb) n
+27  }
+(gdb) n
+main () at p1final.c:47
+47    w=find_weight(sr,h,l);
+(gdb) s
+find_weight (radius=23, height=15, length=12) at p1final.c:32
+32    weight=pi*pow(radius,3)*sqrt(height*length);
+(gdb) n
+33    return weight;
+(gdb) n
+34  }
+(gdb) n
+main () at p1final.c:48
+48    output(sr,h,l,w);
+(gdb) s
+output (radius=23, height=15, length=12, weight=512565.531) at p1final.c:38
+38    printf("The weight of the camel with stomach radius %f, height %f and length %f is %f",radius,height,length,weight);
+(gdb) n
+39  }
+(gdb) n
+main () at p1final.c:49
+49  }(gdb) c
+Continuing.
+The weight of the camel with stomach radius 23.000000, height 15.000000 and length 12.000000 is 512565.531250[Inferior 1 (process 1216) exited normally]
